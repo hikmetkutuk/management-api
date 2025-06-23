@@ -1,4 +1,5 @@
 using ManagementApi.Data;
+using ManagementApi.DTOs;
 using ManagementApi.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,9 +17,16 @@ public class UserRepository(AppDbContext context)
         return await context.Users.FindAsync(id);
     }
 
-    public async Task AddAsync(User user)
+    public async Task AddAsync(UserCreateDto dto)
     {
-        ArgumentNullException.ThrowIfNull(user);
+        ArgumentNullException.ThrowIfNull(dto);
+        var user = new User
+        {
+            FirstName = dto.FirstName,
+            LastName = dto.LastName,
+            Email = dto.Email,
+            PhoneNumber = dto.PhoneNumber
+        };
 
         await context.Users.AddAsync(user);
         await context.SaveChangesAsync();

@@ -1,5 +1,6 @@
 using System.Text;
 using System.Text.Json;
+using ManagementApi.DTOs;
 using ManagementApi.Entities;
 using ManagementApi.Options;
 using Microsoft.Extensions.Options;
@@ -29,7 +30,7 @@ public class RabbitMqPublisher : IDisposable
         _channel.ExchangeDeclare(exchange: ExchangeName, type: ExchangeType.Fanout);
     }
 
-    public void PublishUserCreated(User user)
+    public void PublishUserCreated(UserCreateDto user)
     {
         var message = JsonSerializer.Serialize(user);
         var body = Encoding.UTF8.GetBytes(message);

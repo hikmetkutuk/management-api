@@ -3463,24 +3463,26 @@
     ]
   },
   "packageFolders": {
-    "/Users/hikmetkutuk/.nuget/packages/": {}
+    "C:\\Users\\HIKMET.KUTUK\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/hikmetkutuk/Documents/projects/ManagementApi/ManagementApi.csproj",
+      "projectUniqueName": "C:\\Users\\HIKMET.KUTUK\\Documents\\projects\\management-api\\ManagementApi.csproj",
       "projectName": "ManagementApi",
-      "projectPath": "/Users/hikmetkutuk/Documents/projects/ManagementApi/ManagementApi.csproj",
-      "packagesPath": "/Users/hikmetkutuk/.nuget/packages/",
-      "outputPath": "/Users/hikmetkutuk/Documents/projects/ManagementApi/obj/",
+      "projectPath": "C:\\Users\\HIKMET.KUTUK\\Documents\\projects\\management-api\\ManagementApi.csproj",
+      "packagesPath": "C:\\Users\\HIKMET.KUTUK\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HIKMET.KUTUK\\Documents\\projects\\management-api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/hikmetkutuk/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\HIKMET.KUTUK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3555,7 +3557,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.103/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.107/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

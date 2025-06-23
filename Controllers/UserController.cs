@@ -1,5 +1,7 @@
+using ManagementApi.DTOs;
 using ManagementApi.Entities;
 using ManagementApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ManagementApi.Controllers;
@@ -15,7 +17,7 @@ public class UserController(UserService userService) : ControllerBase
         return Ok(users);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
         var user = await userService.GetByIdAsync(id);
@@ -23,14 +25,17 @@ public class UserController(UserService userService) : ControllerBase
         return Ok(user);
     }
 
+    [AllowAnonymous]
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] User user)
+    public async Task<IActionResult> Create([FromBody] UserCreateDto dto)
     {
-        await userService.AddAsync(user);
-        return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+        if (!ModelState.IsValid) return BadRequest(ModelState);
+
+        await userService.AddAsync(dto);
+        return Ok();
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id:int}")]
     public async Task<IActionResult> Update(int id, [FromBody] User user)
     {
         if (id != user.Id) return BadRequest();
@@ -42,7 +47,7 @@ public class UserController(UserService userService) : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("{id:int}")]
     public async Task<IActionResult> Delete(int id)
     {
         await userService.DeleteAsync(id);

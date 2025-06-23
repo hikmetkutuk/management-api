@@ -1,3 +1,4 @@
+using ManagementApi.DTOs;
 using ManagementApi.Entities;
 using ManagementApi.Messaging;
 using ManagementApi.Repositories;
@@ -10,11 +11,11 @@ public class UserService(UserRepository userRepository, RabbitMqPublisher rabbit
 
     public async Task<User?> GetByIdAsync(int id) => await userRepository.GetByIdAsync(id);
 
-    public async Task AddAsync(User user)
+    public async Task AddAsync(UserCreateDto dto)
     {
-        await userRepository.AddAsync(user);
+        await userRepository.AddAsync(dto);
         // Kullanıcı eklendiğinde RabbitMQ'ya mesaj gönder
-        rabbitMqPublisher.PublishUserCreated(user);
+        rabbitMqPublisher.PublishUserCreated(dto);
     }
 
     public async Task UpdateAsync(User user) => await userRepository.UpdateAsync(user);

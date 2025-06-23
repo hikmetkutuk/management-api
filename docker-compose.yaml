@@ -6,6 +6,7 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
+      POSTGRES_DB: ManagementApi
       PGDATA: /data/postgres
     ports:
       - "5432:5432"
